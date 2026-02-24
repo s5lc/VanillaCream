@@ -28,6 +28,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
 
     modApi group: 'games.moegirl.sinocraft', name: 'sinocore-common', version: rootProject.sinocore_version
+    modImplementation group: 'com.klikli_dev', name: "modonomicon-${rootProject.minecraft_version}-common", version: rootProject.modonomicon_version
 }
 
 sourceSets {
@@ -101,8 +102,11 @@ allprojects {
         }
 
         maven {
-            name = 'Vazkii mods'
-            url = 'https://maven.blamejared.com'
+            name = 'Modonomicon maven'
+            url = 'https://dl.cloudsmith.io/public/klikli-dev/mods/maven/'
+            content {
+                includeGroup "com.klikli_dev"
+            }
         }
 
         mavenCentral()
@@ -158,34 +162,36 @@ allprojects {
 
     var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
         var properties = [
-                mod_id                          : project.mod_id,
-                mod_version                     : project.mod_version,
-                mod_name                        : project.mod_name,
-                mod_description                 : project.mod_description,
-                mod_authors                     : project.mod_authors,
-                mod_credits                     : project.mod_credits,
-                mod_license                     : project.mod_license,
-                mod_homepage                    : project.mod_homepage,
-                mod_sources                     : project.mod_sources,
-                mod_issues_page                 : project.mod_issues_page,
-                maven_group                     : project.maven_group,
-                archive_base_name               : project.archive_base_name,
+                mod_id                            : project.mod_id,
+                mod_version                       : project.mod_version,
+                mod_name                          : project.mod_name,
+                mod_description                   : project.mod_description,
+                mod_authors                       : project.mod_authors,
+                mod_credits                       : project.mod_credits,
+                mod_license                       : project.mod_license,
+                mod_homepage                      : project.mod_homepage,
+                mod_sources                       : project.mod_sources,
+                mod_issues_page                   : project.mod_issues_page,
+                maven_group                       : project.maven_group,
+                archive_base_name                 : project.archive_base_name,
 
-                minecraft_version               : project.minecraft_version,
+                minecraft_version                 : project.minecraft_version,
 
-                neoforge_loader_version         : project.neoforge_loader_version,
-                neoforge_version                : project.neoforge_version,
-                neoforge_minecraft_version_range: project.neoforge_minecraft_version_range,
-                neoforge_loader_version_range   : project.neoforge_loader_version_range,
-                neoforge_version_range          : project.neoforge_version_range,
-                neoforge_sinocore_version_range : project.neoforge_sinocore_version_range,
+                neoforge_loader_version           : project.neoforge_loader_version,
+                neoforge_version                  : project.neoforge_version,
+                neoforge_minecraft_version_range  : project.neoforge_minecraft_version_range,
+                neoforge_loader_version_range     : project.neoforge_loader_version_range,
+                neoforge_version_range            : project.neoforge_version_range,
+                neoforge_sinocore_version_range   : project.neoforge_sinocore_version_range,
+                neoforge_modonomicon_version_range: project.neoforge_modonomicon_version_range,
 
-                fabric_loader_version           : project.fabric_loader_version,
-                fabric_api_version              : project.fabric_api_version,
-                fabric_minecraft_version_range  : project.fabric_minecraft_version_range,
-                fabric_loader_version_range     : project.fabric_loader_version_range,
-                fabric_api_version_range        : project.fabric_api_version_range,
-                fabric_sinocore_version_range   : project.fabric_sinocore_version_range,
+                fabric_loader_version             : project.fabric_loader_version,
+                fabric_api_version                : project.fabric_api_version,
+                fabric_minecraft_version_range    : project.fabric_minecraft_version_range,
+                fabric_loader_version_range       : project.fabric_loader_version_range,
+                fabric_api_version_range          : project.fabric_api_version_range,
+                fabric_sinocore_version_range     : project.fabric_sinocore_version_range,
+                fabric_modonomicon_version_range  : project.fabric_modonomicon_version_range
         ]
         inputs.properties properties
         expand properties

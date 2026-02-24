@@ -4,6 +4,8 @@
   "block.vanillacream.redstone_jack_o_lantern": "红石南瓜灯",
   "block.vanillacream.rose": "玫瑰",
   "block.vanillacream.soul_jack_o_lantern": "灵魂南瓜灯",
+  "book.vanillacream.guide_book.name": "VanillaCream模组指南",
+  "book.vanillacream.guide_book.tooltip": "VanillaCream添加了一些原版风格的内容。",
   "item.vanillacream.baguette": "法国长面包",
   "itemGroup.vanillacream.tab": "Vanilla Cream!"
 }

@@ -3,10 +3,9 @@ package cx.rain.mc.vanillacream.neoforge.datagen.language;
 import cx.rain.mc.vanillacream.registries.ModBlocks;
 import cx.rain.mc.vanillacream.registries.ModCreativeModeTabs;
 import cx.rain.mc.vanillacream.registries.ModItems;
-import games.moegirl.sinocraft.sinocore.neoforge.api.datagen.AbstractLanguageProvider;
 import net.minecraft.data.PackOutput;
 
-public class ModZhCnProvider extends AbstractLanguageProvider {
+public class ModZhCnProvider extends ModLanguageProvider {
     public ModZhCnProvider(PackOutput output, String modId, String locale) {
         super(output, modId, locale);
     }

@@ -4,6 +4,8 @@
   "block.vanillacream.redstone_jack_o_lantern": "Redstone Jack o'Lantern",
   "block.vanillacream.rose": "Rose",
   "block.vanillacream.soul_jack_o_lantern": "Soul Jack o'Lantern",
+  "book.vanillacream.guide_book.name": "Vanilla Cream Guide",
+  "book.vanillacream.guide_book.tooltip": "VanillaCream is a Minecraft mod with something vanilla-styled.",
   "item.vanillacream.baguette": "Baguette",
   "itemGroup.vanillacream.tab": "Vanilla Cream!"
 }

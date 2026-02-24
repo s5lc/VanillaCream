@@ -35,5 +35,8 @@
     "fabricloader": "${fabric_loader_version_range}",
     "fabric": "${fabric_api_version_range}",
     "sinocore": "${fabric_sinocore_version_range}"
+  },
+  "suggests": {
+    "modonomicon": "${fabric_modonomicon_version_range}"
   }
 }

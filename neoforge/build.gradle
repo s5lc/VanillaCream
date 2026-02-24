@@ -30,7 +30,12 @@ dependencies {
     shadowBundle project(path: ':', configuration: 'transformProductionNeoForge')
 
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.rei_version}"
-    modRuntimeOnly "vazkii.patchouli:Patchouli:${rootProject.patchouli_version}-NEOFORGE"
+    modImplementation group: 'com.klikli_dev', name: "modonomicon-${rootProject.minecraft_version}-neoforge", version: rootProject.modonomicon_version
+
+    // modonomicon uses commonmark at runtime, 1.117.4 for mc 1.21.1 needs 0.22.0
+    forgeRuntimeLibrary "org.commonmark:commonmark:0.22.0"
+    forgeRuntimeLibrary "org.commonmark:commonmark-ext-gfm-strikethrough:0.22.0"
+    forgeRuntimeLibrary "org.commonmark:commonmark-ext-ins:0.22.0"
 }
 
 remapJar {
