@@ -1,7 +1,7 @@
 package cx.rain.mc.vanillacream.block;
 
 import com.mojang.serialization.MapCodec;
-import cx.rain.mc.vanillacream.registries.ModBlocks;
+import cx.rain.mc.vanillacream.registry.ModBlocks;
 import cx.rain.mc.vanillacream.util.HitHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -1,32 +1,17 @@
 {
   "variants": {
-    "facing=east,powered=false": {
+    "facing=east": {
       "model": "vanillacream:block/redstone_jack_o_lantern",
       "y": 90
     },
-    "facing=east,powered=true": {
-      "model": "vanillacream:block/redstone_jack_o_lantern",
-      "y": 90
-    },
-    "facing=north,powered=false": {
+    "facing=north": {
       "model": "vanillacream:block/redstone_jack_o_lantern"
     },
-    "facing=north,powered=true": {
-      "model": "vanillacream:block/redstone_jack_o_lantern"
-    },
-    "facing=south,powered=false": {
+    "facing=south": {
       "model": "vanillacream:block/redstone_jack_o_lantern",
       "y": 180
     },
-    "facing=south,powered=true": {
-      "model": "vanillacream:block/redstone_jack_o_lantern",
-      "y": 180
-    },
-    "facing=west,powered=false": {
-      "model": "vanillacream:block/redstone_jack_o_lantern",
-      "y": 270
-    },
-    "facing=west,powered=true": {
+    "facing=west": {
       "model": "vanillacream:block/redstone_jack_o_lantern",
       "y": 270
     }

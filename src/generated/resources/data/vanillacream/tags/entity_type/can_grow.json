@@ -28,6 +28,8 @@
     "minecraft:trader_llama",
     "minecraft:turtle",
     "minecraft:villager",
-    "minecraft:wolf"
+    "minecraft:wolf",
+    "minecraft:squid",
+    "minecraft:glow_squid"
   ]
 }

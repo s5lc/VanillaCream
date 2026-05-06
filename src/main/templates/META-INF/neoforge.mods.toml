@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "${neoforge_loader_version_range}"
+issueTrackerURL = "${mod_issues_page}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+credits = "${mod_credits}"
+description = "${mod_description}"
+displayURL = "${mod_homepage}"
+logoFile = "assets/vanillacream/logo.png"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${neoforge_minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neoforge_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "modonomicon"
+type = "optional"
+versionRange = "${neoforge_modonomicon_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "vanillacream.mixins.json"
+
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"

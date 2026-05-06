@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "C": {
-      "item": "minecraft:carved_pumpkin"
-    },
-    "T": {
-      "item": "minecraft:soul_torch"
-    }
+    "C": "minecraft:carved_pumpkin",
+    "T": "minecraft:soul_torch"
   },
   "pattern": [
     "C",
     "T"
   ],
   "result": {
-    "count": 1,
     "id": "vanillacream:soul_jack_o_lantern"
   }
 }

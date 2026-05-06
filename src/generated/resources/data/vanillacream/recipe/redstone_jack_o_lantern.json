@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "C": {
-      "item": "minecraft:carved_pumpkin"
-    },
-    "T": {
-      "item": "minecraft:redstone_torch"
-    }
+    "C": "minecraft:carved_pumpkin",
+    "T": "minecraft:redstone_torch"
   },
   "pattern": [
     "C",
     "T"
   ],
   "result": {
-    "count": 1,
     "id": "vanillacream:redstone_jack_o_lantern"
   }
 }

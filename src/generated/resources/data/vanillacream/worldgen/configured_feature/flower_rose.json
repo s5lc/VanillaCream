@@ -1,41 +1,22 @@
 {
-  "type": "minecraft:flower",
+  "type": "minecraft:simple_block",
   "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "data": {
-                  "Name": "vanillacream:rose"
-                },
-                "weight": 9
-              },
-              {
-                "data": {
-                  "Name": "vanillacream:cyan_rose"
-                },
-                "weight": 1
-              }
-            ]
-          }
-        }
-      },
-      "placement": [
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
         {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
-          }
+          "data": {
+            "Name": "vanillacream:rose"
+          },
+          "weight": 9
+        },
+        {
+          "data": {
+            "Name": "vanillacream:cyan_rose"
+          },
+          "weight": 1
         }
       ]
-    },
-    "tries": 24,
-    "xz_spread": 6,
-    "y_spread": 2
+    }
   }
 }

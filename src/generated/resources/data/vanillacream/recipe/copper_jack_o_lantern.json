@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": "minecraft:carved_pumpkin",
+    "T": "minecraft:copper_torch"
+  },
+  "pattern": [
+    "C",
+    "T"
+  ],
+  "result": {
+    "id": "vanillacream:copper_jack_o_lantern"
+  }
+}

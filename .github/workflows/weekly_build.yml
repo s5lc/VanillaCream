@@ -42,4 +42,4 @@ jobs:
           tag_name: 'weekly-build'
           name: "Weekly build #${{ github.run_number }}"
           files: |
-            output/**/*@(-neoforge|-fabric)*@(.[0-9]|-SNAPSHOT).jar
+            output/**/*@(.[0-9]|-SNAPSHOT).jar

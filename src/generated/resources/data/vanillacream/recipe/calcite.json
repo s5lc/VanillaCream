@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:diorite"
-    },
-    {
-      "item": "minecraft:dripstone_block"
-    }
+    "minecraft:diorite",
+    "minecraft:dripstone_block"
   ],
   "result": {
     "count": 2,

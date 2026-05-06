@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "minecraft:stone"
-    },
-    {
-      "item": "minecraft:basalt"
-    }
+    "minecraft:stone",
+    "minecraft:basalt"
   ],
   "result": {
     "count": 2,

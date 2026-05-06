@@ -1,8 +1,0 @@
-accessWidener   v2  named
-accessible field net/minecraft/world/item/CreativeModeTabs NATURAL_BLOCKS Lnet/minecraft/resources/ResourceKey;
-accessible field net/minecraft/world/item/CreativeModeTabs REDSTONE_BLOCKS Lnet/minecraft/resources/ResourceKey;
-accessible field net/minecraft/world/item/CreativeModeTabs FOOD_AND_DRINKS Lnet/minecraft/resources/ResourceKey;
-accessible method net/minecraft/world/level/block/Blocks flowerPot (Lnet/minecraft/world/level/block/Block;)Lnet/minecraft/world/level/block/Block;
-accessible method net/minecraft/world/level/block/Blocks always (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/EntityType;)Ljava/lang/Boolean;
-accessible method net/minecraft/world/level/block/Blocks never (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/EntityType;)Ljava/lang/Boolean;
-accessible method net/minecraft/world/level/block/CarvedPumpkinBlock <init> (Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V

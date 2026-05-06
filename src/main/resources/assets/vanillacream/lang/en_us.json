@@ -1,0 +1,13 @@
+{
+  "itemGroup.vanillacream": "Example Mod Tab",
+  "block.vanillacream.example_block": "Example Block",
+  "item.vanillacream.example_item": "Example Item",
+
+  "vanillacream.configuration.title": "Vanilla Cream Configs",
+  "vanillacream.configuration.section.vanillacream.common.toml": "Vanilla Cream Configs",
+  "vanillacream.configuration.section.vanillacream.common.toml.title": "Vanilla Cream Configs",
+  "vanillacream.configuration.items": "Item List",
+  "vanillacream.configuration.logDirtBlock": "Log Dirt Block",
+  "vanillacream.configuration.magicNumberIntroduction": "Magic Number Text",
+  "vanillacream.configuration.magicNumber": "Magic Number"
+}
