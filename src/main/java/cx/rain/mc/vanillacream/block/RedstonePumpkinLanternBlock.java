@@ -1,6 +1,7 @@
 package cx.rain.mc.vanillacream.block;
 
 import com.mojang.serialization.MapCodec;
+import cx.rain.mc.vanillacream.block.state.ModBlockStateProperties;
 import cx.rain.mc.vanillacream.registry.ModBlocks;
 import cx.rain.mc.vanillacream.util.HitHelper;
 import net.minecraft.core.BlockPos;
@@ -8,26 +9,34 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class RedstonePumpkinLanternBlock extends CarvedPumpkinBlock {
     public static final MapCodec<RedstonePumpkinLanternBlock> CODEC = simpleCodec(RedstonePumpkinLanternBlock::new);
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
+    public static final BooleanProperty IN_SIGHT = ModBlockStateProperties.IN_SIGHT;
+    public static final BooleanProperty INVERTED = BlockStateProperties.INVERTED;
 
     public static final double MAX_DISTANCE = 20;   // Same as Debug screen.
     public static final double MAX_DISTANCE_SQUARED = MAX_DISTANCE * MAX_DISTANCE;
 
     public RedstonePumpkinLanternBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(POWERED, false));
+        registerDefaultState(stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(IN_SIGHT, false)
+                .setValue(INVERTED, false));
     }
 
     @Override
@@ -38,12 +47,8 @@ public class RedstonePumpkinLanternBlock extends CarvedPumpkinBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
-        builder.add(POWERED);
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return super.getStateForPlacement(context).setValue(POWERED, false);
+        builder.add(IN_SIGHT)
+                .add(INVERTED);
     }
 
     @Override
@@ -53,7 +58,20 @@ public class RedstonePumpkinLanternBlock extends CarvedPumpkinBlock {
 
     @Override
     protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        return state.getValue(POWERED) ? 15 : 0;
+        return (state.getValue(IN_SIGHT) ^ state.getValue(INVERTED)) ? 15 : 0;
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (player.mayBuild()) {
+            if (!level.isClientSide()) {
+                BlockState newState = state.cycle(INVERTED);
+                level.setBlock(pos, newState, Block.UPDATE_ALL);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
+            }
+            return InteractionResult.SUCCESS;
+        }
+        return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 
     @Override
@@ -94,15 +112,15 @@ public class RedstonePumpkinLanternBlock extends CarvedPumpkinBlock {
     }
 
     private static void onGotSight(ServerLevel level, BlockState state, BlockPos pos) {
-        if (!state.getValue(POWERED)) {
-            level.setBlock(pos, state.setValue(POWERED, true), Block.UPDATE_ALL);
+        if (!state.getValue(IN_SIGHT)) {
+            level.setBlock(pos, state.setValue(IN_SIGHT, true), Block.UPDATE_ALL);
         }
         scheduleNextTick(level, pos);
     }
 
     private static void onLostSight(ServerLevel level, BlockState state, BlockPos pos) {
-        if (state.getValue(POWERED)) {
-            level.setBlock(pos, state.setValue(POWERED, false), Block.UPDATE_ALL);
+        if (state.getValue(IN_SIGHT)) {
+            level.setBlock(pos, state.setValue(IN_SIGHT, false), Block.UPDATE_ALL);
         }
     }
 
